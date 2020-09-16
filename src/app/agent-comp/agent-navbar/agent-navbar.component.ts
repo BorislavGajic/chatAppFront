@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ROUTES} from '../agent-sidebar/agent-sidebar.component';
+import {AuthService} from '../../services/auth.service';
 
 @Component({
   selector: 'app-agent-navbar',
@@ -29,7 +30,7 @@ export class AgentNavbarComponent implements OnInit {
     }
 
   }
-  constructor(private element: ElementRef, private router: Router) {
+  constructor(private element: ElementRef, private router: Router, private authService: AuthService) {
     this.sidebarVisible = false;
   }
 
@@ -86,6 +87,15 @@ export class AgentNavbarComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   logout() {
+    const user = JSON.stringify({
+      username: localStorage.getItem('currentuser'),
+      password: '',
+    });
+    this.authService.logout(user).subscribe((ok) => {
+      localStorage.removeItem('currentuser');
+      this.authService.disconect();
+      this.router.navigate(['/login']);
+    });
   }
 
 }

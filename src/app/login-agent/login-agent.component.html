@@ -1,0 +1,16 @@
+<div class="col-md-12 text-center">
+  <h1>Login</h1>
+</div>
+
+<!-- Login Form -->
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <input type="text" formControlName="username" class="form-control" id="username" name="username" placeholder="username">
+  <input type="text" formControlName="password" class="form-control" id="password" name="password" placeholder="password">
+  <input type="submit" class="fadeIn fourth" value="Log In">
+</form>
+
+<!-- Remind Passowrd -->
+<div id="formFooter">
+  <p>Not a member?</p>
+  <a class="underlineHover" href="/signup">Sign up!</a>
+</div>

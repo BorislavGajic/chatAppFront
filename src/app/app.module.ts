@@ -12,10 +12,16 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {FlatpickrModule} from 'angularx-flatpickr';
 import {MatButtonModule, MatDatepickerModule, MatFormFieldModule, MatNativeDateModule, MatSelectModule} from '@angular/material';
 import {AgentLayoutModule} from './agent-layout/agent-layout.module';
+import { ChatComponent } from './chat/chat.component';
+import { LoginAgentComponent } from './login-agent/login-agent.component';
+import { RegistracionComponent } from './registracion/registracion.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChatComponent,
+    LoginAgentComponent,
+    RegistracionComponent
   ],
   imports: [
     BrowserAnimationsModule,
